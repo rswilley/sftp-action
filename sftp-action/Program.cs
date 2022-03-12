@@ -53,6 +53,8 @@ namespace sftp_action
                     client.Disconnect();
                 }
             }
+
+            Environment.Exit(0);
         }
 
         private static List<(string name, string command)> GetCommands(ActionInputs input)
