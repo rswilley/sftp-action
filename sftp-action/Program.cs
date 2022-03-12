@@ -20,18 +20,17 @@ namespace sftp_action
 
         private static void Execute(ActionInputs input)
         {
-            var base64EncodedPrivateKey = Environment.GetEnvironmentVariable("PRIVATEKEY");
-            var base64EncodedBytes = Convert.FromBase64String(base64EncodedPrivateKey);
-            var privateKeyString = Encoding.UTF8.GetString(base64EncodedBytes);
-
-            var privateKey = new MemoryStream();
-            using (var writer = new StreamWriter(privateKey))
+            var privateKeyString = Environment.GetEnvironmentVariable("PRIVATEKEY");
+            var privateKeyStream = new MemoryStream();
+            using (var writer = new StreamWriter(privateKeyStream))
             {
                 writer.Write(privateKeyString);
                 writer.Flush();
-                privateKey.Seek(0, SeekOrigin.Begin);
+                privateKeyStream.Seek(0, SeekOrigin.Begin);
 
-                using (var client = new SshClient(input.Host, input.Username, new PrivateKeyFile(privateKey)))
+                Console.WriteLine(privateKeyString);
+
+                using (var client = new SshClient(input.Host, input.Username, new PrivateKeyFile(privateKeyStream)))
                 {
                     client.HostKeyReceived += (sender, e) =>
                     {
