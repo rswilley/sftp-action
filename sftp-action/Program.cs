@@ -22,7 +22,7 @@ namespace sftp_action
             var privateKey = new MemoryStream();
             using (var writer = new StreamWriter(privateKey))
             {
-                writer.Write(input.PrivateKey);
+                writer.Write(Environment.GetEnvironmentVariable("PRIVATEKEY"));
                 writer.Flush();
                 privateKey.Seek(0, SeekOrigin.Begin);
 

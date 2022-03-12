@@ -23,10 +23,5 @@ namespace sftp_action
             Required = true,
             HelpText = "The Github repo.")]
         public string Repo { get; set; } = null!;
-
-        [Option('k', "privateKey",
-            Required = true,
-            HelpText = "The private key for the server.")]
-        public string PrivateKey { get; set; } = null!;
     }
 }

@@ -14,9 +14,6 @@ inputs:
   repo:
     description: "Github repo"
     required: true
-  privateKey:
-    description: "File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)"
-    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,8 +26,6 @@ runs:
   - ${{ inputs.githubtoken }}
   - '-r'
   - ${{ inputs.repo }}
-  - '-k'
-  - ^${{ inputs.privateKey }}
 branding:
   color: "purple"
   icon: "lock"
