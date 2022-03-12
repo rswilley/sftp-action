@@ -34,9 +34,13 @@ namespace sftp_action
 
                             Console.WriteLine($"Running: {runningCommandName}");
                             var result = cmd.Execute();
-
-                            if (!string.IsNullOrEmpty(result))
+                            if (cmd.ExitStatus == 0 && !string.IsNullOrEmpty(result))
+                            {
                                 Console.WriteLine(result);
+                            } else if (cmd.ExitStatus != 0)
+                            {
+                                Console.WriteLine(cmd.Error);
+                            }
                         }
                     }
 
@@ -49,12 +53,12 @@ namespace sftp_action
         {
             return new List<(string, string)>
             {
-                ("git clone", $"git clone https:/{input.Username}:{input.Githubtoken}@github.com/{input.Username}/{input.Repo}.git"),
+                ("", $"rm -rf {input.Repo}"),
+                ("git clone", $"git clone https://{input.Username}:{input.Githubtoken}@github.com/{input.Username}/{input.Repo}.git"),
                 ("", $"cd {input.Repo} && dotnet publish -c Release -o deploy/"),
                 ("", $"sudo systemctl stop {input.Repo}.service"),
                 ("", $"sudo rsync -a ~/{input.Repo}/deploy/ /var/www/{input.Repo}.com"),
-                ("", $"sudo systemctl start {input.Repo}.service"),
-                //("", $"rm -rf ~/{input.Repo}")
+                ("", $"sudo systemctl start {input.Repo}.service")
             };
         }
     }
