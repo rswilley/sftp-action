@@ -24,21 +24,21 @@ namespace sftp_action
                     };
                     client.Connect();
 
-                    //foreach (var (commandName, commandText) in GetCommands(input))
-                    //{
-                    //    using (var cmd = client.CreateCommand(commandText))
-                    //    {
-                    //        var runningCommandName = commandText;
-                    //        if (!string.IsNullOrEmpty(commandName))
-                    //            runningCommandName = commandName;
+                    foreach (var (commandName, commandText) in GetCommands(input))
+                    {
+                        using (var cmd = client.CreateCommand(commandText))
+                        {
+                            var runningCommandName = commandText;
+                            if (!string.IsNullOrEmpty(commandName))
+                                runningCommandName = commandName;
 
-                    //        Console.WriteLine($"Running: {runningCommandName}");
-                    //        var result = cmd.Execute();
+                            Console.WriteLine($"Running: {runningCommandName}");
+                            var result = cmd.Execute();
 
-                    //        if (!string.IsNullOrEmpty(result))
-                    //            Console.WriteLine(result);
-                    //    }
-                    //}
+                            if (!string.IsNullOrEmpty(result))
+                                Console.WriteLine(result);
+                        }
+                    }
 
                     client.Disconnect();
                 }
@@ -54,7 +54,7 @@ namespace sftp_action
                 ("", $"sudo systemctl stop {input.Repo}.service"),
                 ("", $"sudo rsync -a ~/{input.Repo}/deploy/ /var/www/{input.Repo}.com"),
                 ("", $"sudo systemctl start {input.Repo}.service"),
-                ("", $"rm -rf ~/{input.Repo}")
+                //("", $"rm -rf ~/{input.Repo}")
             };
         }
     }
