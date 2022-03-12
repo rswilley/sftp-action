@@ -30,7 +30,7 @@ runs:
   - '-r'
   - ${{ inputs.repo }}
   - '-k'
-  - ${{ inputs.privateKey }}
+  - ^${{ inputs.privateKey }}
 branding:
   color: "purple"
   icon: "lock"
