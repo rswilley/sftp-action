@@ -1,0 +1,36 @@
+﻿name: Run .NET Core Deploy
+author: rswilley
+description: Github Action to Deploy .NET Core
+inputs:
+  host:
+    description: "Remote host to connect"
+    required: true
+  username:
+    description: "Username for authentication"
+    required: true
+  githubtoken:
+    description: "Github token for repo"
+    required: true
+  repo:
+    description: "Github repo"
+    required: true
+  privateKey:
+    description: "File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)"
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - '-h'
+  - ${{ inputs.host }}
+  - '-u'
+  - ${{ inputs.username }}
+  - '-t'
+  - ${{ inputs.githubtoken }}
+  - '-r'
+  - ${{ inputs.repo }}
+  - '-k'
+  - ${{ inputs.privateKey }}
+branding:
+  color: "purple"
+  icon: "lock"
