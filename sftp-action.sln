@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sftp-action", "sftp-action\sftp-action.csproj", "{E52D2E49-0945-480F-88EF-181AC3391A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sftp-action", "sftp-action\sftp-action.csproj", "{E52D2E49-0945-480F-88EF-181AC3391A7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4C310CA-C853-441F-AE8D-31A3E838C1BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C466F9CB-4B24-4C41-9212-5A4418AF825E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		action.yml = action.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +27,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E52D2E49-0945-480F-88EF-181AC3391A7E} = {F4C310CA-C853-441F-AE8D-31A3E838C1BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FF91890-7BC0-44AE-91E0-214CB12584BE}
