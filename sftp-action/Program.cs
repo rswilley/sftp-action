@@ -10,8 +10,16 @@ namespace sftp_action
             Parser.Default.ParseArguments<ActionInputs>(args)
                    .WithParsed(input =>
                    {
-                       new Worker().Execute(input, Environment.GetEnvironmentVariable("PRIVATEKEY"));
-                       Environment.Exit(0);
+                       try
+                       {
+                           new Worker().Execute(input, Environment.GetEnvironmentVariable("PRIVATEKEY"));
+                           Environment.Exit(0);
+                       }
+                       catch (Exception ex)
+                       {
+                           Console.WriteLine(ex.Message);
+                           Environment.Exit(1);
+                       }
                    });
         }
     }

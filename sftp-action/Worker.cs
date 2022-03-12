@@ -39,7 +39,7 @@ namespace sftp_action
                                 Console.WriteLine(result);
                             } else if (cmd.ExitStatus != 0)
                             {
-                                Console.WriteLine(cmd.Error);
+                                throw new Exception(cmd.Error);
                             }
                         }
                     }
