@@ -3,6 +3,7 @@ using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace sftp_action
 {
@@ -19,6 +20,10 @@ namespace sftp_action
 
         private static void Execute(ActionInputs input)
         {
+            var base64EncodedPrivateKey = Environment.GetEnvironmentVariable("PRIVATEKEY");
+            var base64EncodedBytes = Convert.FromBase64String(base64EncodedPrivateKey);
+            var privateKeyString = Encoding.UTF8.GetString(base64EncodedBytes);
+
             var privateKey = new MemoryStream();
             using (var writer = new StreamWriter(privateKey))
             {
