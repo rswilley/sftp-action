@@ -34,10 +34,11 @@ public class Worker
             }
             else if (cmd.ExitStatus != 0)
             {
+                client.Disconnect();
                 throw new Exception($"Error: {cmd.Error}");
             }
         }
-
+        
         client.Disconnect();
     }
 }
