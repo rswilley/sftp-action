@@ -2,7 +2,7 @@
 author: rswilley
 description: Github Action to Deploy .NET Core
 inputs:
-  host:
+  hostname:
     description: "Remote host to connect"
     required: true
   username:
@@ -16,10 +16,11 @@ runs:
   image: 'Dockerfile'
   args:
   - '-h'
-  - ${{ inputs.host }}
+  - ${{ inputs.hostname }}
   - '-u'
-  - ${{ inputs.commands }}
+  - ${{ inputs.username }}
   - '-c'
+  - ${{ inputs.commands }}
 branding:
   color: "purple"
   icon: "lock"
