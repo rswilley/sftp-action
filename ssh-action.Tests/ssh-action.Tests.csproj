@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\sftp-action\ssh-action.csproj" />
+    <ProjectReference Include="..\ssh-action\ssh-action.csproj" />
   </ItemGroup>
 
   <ItemGroup>

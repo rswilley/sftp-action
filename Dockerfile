@@ -7,16 +7,16 @@ RUN dotnet publish ./sftp-action/sftp-action.csproj -c Release -o out --no-self-
 
 # Label the container
 LABEL maintainer="Robert Swilley <robert@rswilley.com>"
-LABEL repository="https://github.com/dotnet/samples"
-LABEL homepage="https://github.com/dotnet/samples"
+LABEL repository="https://github.com/rswilley/ssh-action"
+LABEL homepage="https://github.com/rswilley/ssh-action"
 
 # Label as GitHub action
-LABEL com.github.actions.name="Custom .NET Core Deploy"
-LABEL com.github.actions.description="Custom .NET Core Deploy"
+LABEL com.github.actions.name=".NET Core SSH Deploy"
+LABEL com.github.actions.description=".NET Core SSH Deploy"
 LABEL com.github.actions.icon="sliders"
 LABEL com.github.actions.color="purple"
 
 # Relayer the .NET SDK, anew with the build output
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 COPY --from=build-env /out .
-ENTRYPOINT [ "dotnet", "/sftp-action.dll" ]
+ENTRYPOINT [ "dotnet", "/ssh-action.dll" ]

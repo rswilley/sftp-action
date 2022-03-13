@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ssh-action", "sftp-action\ssh-action.csproj", "{E52D2E49-0945-480F-88EF-181AC3391A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ssh-action", "ssh-action\ssh-action.csproj", "{E52D2E49-0945-480F-88EF-181AC3391A7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4C310CA-C853-441F-AE8D-31A3E838C1BE}"
 EndProject
@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1590DA0F-48D4-4313-AFC3-56FD851BC3A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ssh-action.Tests", "sftp-action.Tests\ssh-action.Tests.csproj", "{A45E8741-6FB0-48E6-BD3A-79E6AC2E6CBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ssh-action.Tests", "ssh-action.Tests\ssh-action.Tests.csproj", "{A45E8741-6FB0-48E6-BD3A-79E6AC2E6CBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
