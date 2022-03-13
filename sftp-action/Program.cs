@@ -1,26 +1,18 @@
 ﻿using CommandLine;
+using ssh_action;
 using System;
 
-namespace sftp_action
-{
-    internal class Program
+Parser.Default.ParseArguments<ActionInputs>(args)
+    .WithParsed(input =>
     {
-        static void Main(string[] args)
+        try
         {
-            Parser.Default.ParseArguments<ActionInputs>(args)
-                   .WithParsed(input =>
-                   {
-                       try
-                       {
-                           new Worker().Execute(input, Environment.GetEnvironmentVariable("PRIVATEKEY"));
-                           Environment.Exit(0);
-                       }
-                       catch (Exception ex)
-                       {
-                           Console.WriteLine(ex.Message);
-                           Environment.Exit(1);
-                       }
-                   });
+            Worker.Execute(input, Environment.GetEnvironmentVariable("PRIVATEKEY"));
+            Environment.Exit(0);
         }
-    }
-}
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Environment.Exit(1);
+        }
+    });
