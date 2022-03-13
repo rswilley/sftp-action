@@ -1,6 +1,7 @@
 ﻿using Renci.SshNet;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace ssh_action;
 
@@ -21,7 +22,8 @@ public class Worker
         };
         client.Connect();
 
-        foreach (var command in input.Command.Split(Environment.NewLine))
+        foreach (var command in input.Command.Split(Environment.NewLine)
+            .Where(c => !string.IsNullOrEmpty(c)))
         {
             using var cmd = client.CreateCommand(command);
             Console.WriteLine($"Running: {command}");
