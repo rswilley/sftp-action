@@ -14,7 +14,7 @@ See <a href="https://github.com/rswilley/ssh-action/blob/master/action.yml">acti
 
 ## Environment Variables
 
-See <a href="https://github.com/rswilley/ssh-action/blob/master/deploy-example.yml">deploy-example.yml</a> for more detailed information
+See <a href="https://github.com/rswilley/ssh-action/blob/master/example.yml">example.yml</a> for more detailed information
 
 * ```PRIVATEKEY``` ssh private key
 
