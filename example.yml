@@ -1,0 +1,23 @@
+name: 'Example'
+
+on: 
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: SSH Action
+      uses: rswilley/ssh-action@master
+      env:
+        PRIVATEKEY: ${{ secrets.REMOTE_SSH_KEY }}
+      with:
+        hostname: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        command: |
+          whoami
+          ls -la
