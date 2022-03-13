@@ -7,7 +7,6 @@ Parser.Default.ParseArguments<ActionInputs>(args)
     {
         try
         {
-            Console.WriteLine("Commands to run: " + string.Join(',', input.Commands));
             Worker.Execute(input, Environment.GetEnvironmentVariable("PRIVATEKEY"));
             Environment.Exit(0);
         }
