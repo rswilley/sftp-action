@@ -8,8 +8,8 @@ inputs:
   username:
     description: "Username for authentication"
     required: true
-  commands:
-    description: "Commands to run via SSH"
+  command:
+    description: "Command to run via SSH"
     required: true
 runs:
   using: 'docker'
@@ -20,7 +20,7 @@ runs:
   - '-u'
   - ${{ inputs.username }}
   - '-c'
-  - ${{ inputs.commands }}
+  - ${{ inputs.command }}
 branding:
   color: "purple"
   icon: "lock"

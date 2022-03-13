@@ -15,8 +15,8 @@ public class ActionInputs
         HelpText = "The username to login.")]
     public string Username { get; set; } = null!;
 
-    [Option('c', "commands",
+    [Option('c', "command",
         Required = true,
-        HelpText = "Commands to run via SSH.")]
-    public IEnumerable<string> Commands { get; set; } = null!;
+        HelpText = "Command to run via SSH.")]
+    public string Command { get; set; } = null!;
 }

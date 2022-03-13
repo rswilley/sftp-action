@@ -16,7 +16,7 @@ public class WorkerTests
         {
             Host = secrets.hostname,
             Username = secrets.username,
-            Commands = new List<string> { "whoami" }
+            Command = "whoami"
         }, privateKeyString);
     }
 }

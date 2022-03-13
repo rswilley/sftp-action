@@ -21,7 +21,7 @@ public class Worker
         };
         client.Connect();
 
-        foreach (var command in input.Commands)
+        foreach (var command in input.Command.Split(Environment.NewLine))
         {
             using var cmd = client.CreateCommand(command);
             Console.WriteLine($"Running: {command}");
