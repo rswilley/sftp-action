@@ -1,4 +1,4 @@
-# SSH for GitHub Actions with .NET Core
+# SSH for GitHub Actions with .NET 6
 
 <a href="https://github.com/features/actions">GitHub Action</a> for executing remote ssh commands built with <a href="https://github.com/docker">Docker</a>, <a href="https://www.nuget.org/packages/CommandLineParser/">CommmandLineParser</a>, and <a href="https://github.com/sshnet/SSH.NET/">SSH.NET</a>.
 
