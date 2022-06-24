@@ -1,6 +1,6 @@
 # SSH for GitHub Actions with .NET 6
 
-<a href="https://github.com/features/actions">GitHub Action</a> for executing remote ssh commands built with <a href="https://github.com/docker">Docker</a>, <a href="https://www.nuget.org/packages/CommandLineParser/">CommmandLineParser</a>, and <a href="https://github.com/sshnet/SSH.NET/">SSH.NET</a>.
+<a href="https://github.com/features/actions">GitHub Action</a> for executing remote ssh commands built with <a href="https://github.com/docker">Docker</a>, <a href="https://www.nuget.org/packages/CommandLineParser/">CommandLineParser</a>, and <a href="https://github.com/sshnet/SSH.NET/">SSH.NET</a>.
 
 This makes some assumptions on how your SSH is setup based on my settings. We are using a private key to authenticate.
 
